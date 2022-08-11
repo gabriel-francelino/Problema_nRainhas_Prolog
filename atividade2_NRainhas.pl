@@ -29,4 +29,4 @@ resolve([C|LC],[L|LL],CO,DS,DI):-
 compare(X,Y) :- (X == Y, write('R ')) ; ( X =\= Y , write('. ')).
 
 imprime(_,[]) :- write(' ').
-imprime(N,[A|B]) :- forall(between(1,4,X),compare(X,A)), nl, imprime(N,B).
+imprime(N,[A|B]) :- forall(between(1,N,X),compare(X,A)), nl, imprime(N,B).
