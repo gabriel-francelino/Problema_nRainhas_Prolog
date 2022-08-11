@@ -14,7 +14,8 @@ solucao(N,S) :-
      crialista(N,L),
      criasup(N,DS),
      criainf(N,DI),
-     resolve(S,L,L,DS,DI).
+     resolve(S,L,L,DS,DI),
+     imprime(N,S).
 
 resolve([],[],_,_,_).
 resolve([C|LC],[L|LL],CO,DS,DI):-
@@ -25,5 +26,7 @@ resolve([C|LC],[L|LL],CO,DS,DI):-
     apaga(NI,DI,DI1),
     resolve(LC,LL,CO1,DS1,DI1).
 
+compare(X,Y) :- (X == Y, write('R ')) ; ( X =\= Y , write('. ')).
 
-
+imprime(_,[]) :- write(' ').
+imprime(N,[A|B]) :- forall(between(1,4,X),compare(X,A)), nl, imprime(N,B).
